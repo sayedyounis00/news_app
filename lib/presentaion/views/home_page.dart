@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/presentaion/widgtes/carousel_slider.dart';
+import 'package:news_app/presentaion/widgtes/custom_icon.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -34,26 +35,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomIcon extends StatelessWidget {
-  const CustomIcon({
-    super.key, required this.icon,
-  });
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 40,
-      width: 40,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.grey[400],
-      ),
-      child:  Icon(icon),
     );
   }
 }
