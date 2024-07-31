@@ -1,36 +1,59 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:news_app/presentaion/widgtes/carousel_slider.dart';
 import 'package:news_app/presentaion/widgtes/custom_icon.dart';
+import 'package:news_app/presentaion/widgtes/main_line.dart';
+import 'package:news_app/presentaion/widgtes/news_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CustomIcon(icon: Icons.menu,),
+                  CustomIcon(
+                    icon: Icons.menu,
+                  ),
                   Row(
                     children: [
-                      CustomIcon(icon: Icons.search,),
-                      SizedBox(width: 16.0,),
-                      CustomIcon(icon: Icons.notifications,),
+                      CustomIcon(
+                        icon: Icons.search,
+                      ),
+                      SizedBox(
+                        width: 16.0,
+                      ),
+                      CustomIcon(
+                        icon: Icons.notifications,
+                      ),
                     ],
                   ),
                 ],
-              ),SizedBox(
+              ),
+              const SizedBox(
                 height: 15,
               ),
-                CarouselWithIndicatorState(),
+              const MainLine(
+                title: 'Breaking News',
+              ),
+              const CarouselWithIndicatorState(),
+              const MainLine(
+                title: 'Recomended news',
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const RecomendedNewsItem();
+                  },
+                ),
+              ),
             ],
           ),
         ),
